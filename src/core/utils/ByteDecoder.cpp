@@ -37,9 +37,9 @@ std::uint8_t ByteDecoder::exctractData(std::uint8_t src)
     return static_cast<std::uint8_t>(src & kDataMask);
 }
 
-std::string ByteDecoder::decodeUnsigned(std::uint8_t dataBits)
+std::string ByteDecoder::decodeUnsigned(std::uint8_t src)
 {
-    return std::to_string(static_cast<unsigned>(dataBits));
+    return std::to_string(static_cast<unsigned>(src));
 }
 
 std::string ByteDecoder::decodeSigned(std::uint8_t src)
@@ -47,12 +47,12 @@ std::string ByteDecoder::decodeSigned(std::uint8_t src)
     return std::to_string(decodeSigned6Bit(src));
 }
 
-std::optional<std::string> ByteDecoder::decodeLetter(std::uint8_t dataBits)
+std::optional<std::string> ByteDecoder::decodeLetter(std::uint8_t src)
 {
-    if (dataBits >= kLettersCount)
+    if (src >= kLettersCount)
         return std::nullopt;
 
-    const char letter = static_cast<char>(kFirstLetter + dataBits);
+    const char letter = static_cast<char>(kFirstLetter + src);
     return std::string(1, letter);
 }
 

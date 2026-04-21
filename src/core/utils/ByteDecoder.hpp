@@ -17,7 +17,7 @@ public:
         Reserved = 0b11
     };
 
-    static std::optional<std::string> decode(std::uint8_t byte);
+    static std::optional<std::string> decode(std::uint8_t src);
 
 // helpers
 private:
@@ -49,7 +49,7 @@ private:
     static constexpr char kFirstLetter = 'a';
     static constexpr char kLastLetter  = 'z';
     static constexpr std::uint8_t kLettersCount 
-        = static_cast<std::uint8_t>(kFirstLetter - kLastLetter + 1);
+        = static_cast<std::uint8_t>(kLastLetter - kFirstLetter + 1);
 };
 
 #endif
