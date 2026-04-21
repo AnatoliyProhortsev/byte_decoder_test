@@ -31,6 +31,7 @@ FetchContent_MakeAvailable(googletest)
 # ==================================================
 
 add_library(ConverterCore
+    src/core/Converter.cpp
     src/core/workers/ConverterWorker.cpp
     src/core/utils/ByteDecoder.cpp
     src/core/io/QIODevice/QIODeviceSource.cpp
