@@ -49,43 +49,29 @@ target_link_libraries(ConverterCore
 )
 
 # ==================================================
-# App
-# ==================================================
-
-add_executable(ByteConverterTest
-    src/app/main.cpp
-)
-
-target_link_libraries(ByteConverterTest
-    PRIVATE
-        ConverterCore
-)
-
-# ==================================================
 # Test
 # ==================================================
 
 
-# add_executable(ByteConverterTest_test
-#     tests/test_main.cpp
-#     tests/ByteDecoderTests.cpp
-#     tests/ConverterWorkerTests.cpp
-# )
+add_executable(ByteConverterTest_test
+    tests/test_main.cpp
+    tests/ByteDecoder_test.cpp
+)
 
-# target_include_directories(ByteConverterTest_test
-#     PRIVATE
-#         ${CMAKE_CURRENT_SOURCE_DIR}/src
-#         ${CMAKE_CURRENT_SOURCE_DIR}/tests
-# )
+target_include_directories(ByteConverterTest_test
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/tests
+)
 
-# target_link_libraries(ByteConverterTest_test
-#     PRIVATE
-#         ConverterCore
-#         GTest::gtest
-#         GTest::gmock
-#         GTest::gtest_main
-# )
+target_link_libraries(ByteConverterTest_test
+    PRIVATE
+        ConverterCore
+        GTest::gtest
+        GTest::gmock
+        GTest::gtest_main
+)
 
-# # авто-дискавер тестов
-# include(GoogleTest)
-# gtest_discover_tests(ByteConverterTest_test)
+# авто-дискавер тестов
+include(GoogleTest)
+gtest_discover_tests(ByteConverterTest_test)
