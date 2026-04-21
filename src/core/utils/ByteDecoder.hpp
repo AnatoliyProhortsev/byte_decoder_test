@@ -8,6 +8,7 @@
 class ByteDecoder
 {
 public:
+    // type bits
     enum class Type : std::uint8_t
     {
         Unsigned = 0b00,
