@@ -1,7 +1,5 @@
 #include "Converter.hpp"
 
-#include <utility>
-
 #include "core/io/QIODevice/QIODeviceSink.hpp"
 #include "core/io/QIODevice/QIODeviceSource.hpp"
 
