@@ -91,4 +91,6 @@ void ConverterWorker::run(std::stop_token stoken)
     m_sink->flush();
     m_sink->close();
     m_source->close();
+
+    m_running.store(false);
 }
