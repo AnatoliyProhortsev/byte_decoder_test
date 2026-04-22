@@ -57,6 +57,7 @@ add_executable(ByteConverterTest_test
     tests/test_main.cpp
     tests/ByteDecoder_test.cpp
     tests/QIODeviceSink_test.cpp
+    tests/QIODeviceSource_test.cpp
 )
 
 target_include_directories(ByteConverterTest_test
