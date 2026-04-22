@@ -23,6 +23,8 @@ void ConverterWorker::start()
     if (m_workerThread.joinable())
         return;
 
+    m_running.store(true);
+
     m_workerThread = std::jthread([this](std::stop_token stopToken)
     {
         run(stopToken);
@@ -33,24 +35,33 @@ void ConverterWorker::stop()
 {
     if (m_workerThread.joinable())
         m_workerThread.request_stop();
+
+    m_running.store(false);
 }
 
 bool ConverterWorker::isRunning() const
 {
-    return m_workerThread.joinable();
+    return m_running.load();
 }
 
 void ConverterWorker::run(std::stop_token stoken)
 {
     if (!m_source || !m_sink)
+    {
+        m_running.store(false);
         return;
+    }
 
     if (!m_source->open())
+    {
+        m_running.store(false);
         return;
+    }
 
     if (!m_sink->open())
     {
         m_source->close();
+        m_running.store(false);
         return;
     }
 

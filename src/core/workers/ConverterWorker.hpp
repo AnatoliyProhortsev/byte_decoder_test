@@ -1,6 +1,7 @@
 #ifndef CONVERTER_WORKER_HPP
 #define CONVERTER_WORKER_HPP
 
+#include <atomic>
 #include <memory>
 #include <thread>
 
@@ -27,6 +28,8 @@ private:
     std::shared_ptr<ISink<std::string>> m_sink;
 
     std::jthread m_workerThread;
+
+    std::atomic_bool m_running {false};
 };
 
 #endif
