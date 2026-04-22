@@ -56,6 +56,7 @@ target_link_libraries(ConverterCore
 add_executable(ByteConverterTest_test
     tests/test_main.cpp
     tests/ByteDecoder_test.cpp
+    tests/QIODeviceSink_test.cpp
 )
 
 target_include_directories(ByteConverterTest_test
