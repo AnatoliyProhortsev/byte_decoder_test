@@ -72,7 +72,7 @@ void ConverterWorker::run(std::stop_token stoken)
             continue;
 
         
-        decoded->push_back(' ');
+        decoded->push_back('\n');
 
         m_sink->write(*decoded);
     }
