@@ -21,10 +21,9 @@ bool QIODeviceSink::close()
     if (m_device && m_device->isOpen())
     {
         m_device->close();
-        return true;
     }
 
-    return false;
+    return true;
 }
 
 bool QIODeviceSink::isOpen() const

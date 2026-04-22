@@ -103,19 +103,19 @@ TEST(QIODeviceSinkTests, CloseReturnsTrueForOpenedDevice)
     EXPECT_FALSE(sink.isOpen());
 }
 
-TEST(QIODeviceSinkTests, CloseReturnsFalseForAlreadyClosedDevice)
+TEST(QIODeviceSinkTests, CloseReturnsTrueForAlreadyClosedDevice)
 {
     QByteArray output;
     QBuffer buffer(&output);
 
     QIODeviceSink sink(&buffer);
 
-    EXPECT_FALSE(sink.close());
+    EXPECT_TRUE(sink.close());
 }
 
-TEST(QIODeviceSinkTests, CloseReturnsFalseForNullDevice)
+TEST(QIODeviceSinkTests, CloseReturnsTrueForNullDevice)
 {
     QIODeviceSink sink(nullptr);
 
-    EXPECT_FALSE(sink.close());
+    EXPECT_TRUE(sink.close());
 }
