@@ -68,9 +68,12 @@ void ConverterWorker::run(std::stop_token stoken)
             continue;
         }
 
-        const auto decoded = ByteDecoder::decode(*rawByte);
+        auto decoded = ByteDecoder::decode(*rawByte);
         if (!decoded)
             continue;
+
+        
+        decoded->push_back(' ');
 
         m_sink->write(*decoded);
     }
