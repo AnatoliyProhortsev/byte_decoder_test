@@ -23,7 +23,6 @@ void ConverterWorker::start()
     if (m_workerThread.joinable())
         return;
 
-    auto runFn = std::mem_fn(&ConverterWorker::run);
     m_workerThread = std::jthread([this](std::stop_token stopToken)
     {
         run(stopToken);
